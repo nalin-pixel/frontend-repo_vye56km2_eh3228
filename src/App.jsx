@@ -1,28 +1,45 @@
-import { useState } from 'react'
+import React from 'react';
+import HeroSpline from './components/HeroSpline';
+import FeatureGrid from './components/FeatureGrid';
+import AgentShowcase from './components/AgentShowcase';
+import CallToAction from './components/CallToAction';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen w-full bg-zinc-950 text-white">
+      {/* Simple top bar */}
+      <header className="sticky top-0 z-20 w-full border-b border-white/10 bg-zinc-950/70 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-2">
+            <div className="h-2 w-2 rounded-full bg-cyan-400" />
+            <span className="text-sm font-semibold tracking-wide text-white">AI Campus Companion</span>
+          </div>
+          <nav className="hidden items-center gap-6 text-sm text-zinc-300 sm:flex">
+            <a href="#features" className="hover:text-white">Features</a>
+            <a href="#agents" className="hover:text-white">Agents</a>
+            <a href="#" className="rounded-md bg-white/10 px-3 py-1.5 text-white hover:bg-white/20">Get Started</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <HeroSpline />
+        <FeatureGrid />
+        <AgentShowcase />
+        <CallToAction />
+      </main>
+
+      <footer className="border-t border-white/10 bg-zinc-950 py-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 text-sm text-zinc-400">
+          <p>© {new Date().getFullYear()} AI Campus Companion. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="#features" className="hover:text-white">Features</a>
+            <a href="#agents" className="hover:text-white">Agents</a>
+          </div>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
